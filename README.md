@@ -1,2 +1,5 @@
-# wf-sars_cov_spike_gene
-  A workflow to extract the spike gene sequences from SARS-CoV-2 full genome sequence.
+## extract_spike_gene
+
+This workflow extracts spike gene seqeunce from SARS-CoV-2 whole genome genome
+First create a database of the whole genome seqeunces. Align spike query sequence to 
+blast dataase. Then extract coordinates and trim the sequence using a python script

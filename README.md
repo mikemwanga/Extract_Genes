@@ -8,3 +8,8 @@ blast dataase. Then extract coordinates and trim the sequence using a python scr
 Execute the workflow by running the below command.
 
 `python3 wf/__init__.py`
+
+
+### Requirements
+1. blast command-line tool. Download from [here](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
+2. Python 3.9.5

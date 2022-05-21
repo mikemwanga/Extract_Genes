@@ -24,7 +24,7 @@ def create_database(seqfile: LatchFile) -> LatchFile:
 def run_blast(query_file: LatchFile) -> LatchFile:
 
    
-    coordinates_file = Path("./Results/results.out").resolve()
+    spike_gene_file = Path("./Spike_gene_seq/spike_seq.fasta").resolve()
 
     extract_coordinates = [
         "sh", "./scripts/extract_coordinates.sh"]
@@ -34,7 +34,6 @@ def run_blast(query_file: LatchFile) -> LatchFile:
 
     extract_sequences = [ 
         "sh", "./scripts/read.sh", ">", "./Spike_gene_seq/spike_seq.fasta" ]
-    
 
     _align_cmd = [
         './executables/nblast_2.13/bin/blastn',
@@ -43,13 +42,13 @@ def run_blast(query_file: LatchFile) -> LatchFile:
 		'-outfmt', '6',
 		'-max_hsps','1',
         '-out', 
-        str(coordinates_file) ]
+        str(spike_gene_file) ]
     
     subprocess.run(_align_cmd)
     subprocess.run(extract_coordinates)
     subprocess.run(extract_coordinates2)
     subprocess.run(extract_sequences)
-    return LatchFile(str(coordinates_file), "latch:///Results/results.out")
+    return LatchFile(str(spike_gene_file), "latch:///Spike_gene_seq/spike_seq.fasta")
 
 ############
 

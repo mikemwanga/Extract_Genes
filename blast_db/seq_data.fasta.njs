@@ -6,7 +6,7 @@
   "description": "./data/seq_data.fasta",
   "number-of-letters": 448200,
   "number-of-sequences": 15,
-  "last-updated": "2022-05-20T17:43:00",
+  "last-updated": "2022-05-21T11:01:00",
   "number-of-volumes": 1,
   "bytes-total": 164230,
   "bytes-to-cache": 112762,

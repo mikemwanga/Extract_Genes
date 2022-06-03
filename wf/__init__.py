@@ -28,17 +28,17 @@ def create_database(seqfile: LatchFile) -> LatchFile:
 @small_task
 def run_blast(query_file: LatchFile) -> LatchFile:
 
-    spike_gene_file = Path("./Spike_gene_seq/spike_seq.fasta").resolve()
+    spike_gene_file = Path("spike_seq.fasta").resolve()
 
-    extract_coordinates = ["sh", "./scripts/extract_coordinates.sh"]
+    extract_coordinates = ["sh", "scripts/extract_coordinates.sh"]
 
-    extract_coordinates2 = ["python3", "./scripts/extract.py"]
+    extract_coordinates2 = ["python3", "scripts/extract.py"]
 
     extract_sequences = [
         "sh",
         "./scripts/read.sh",
         ">",
-        "./Spike_gene_seq/spike_seq.fasta",
+        "spike_seq.fasta",
     ]
 
     _align_cmd = [

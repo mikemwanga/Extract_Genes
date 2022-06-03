@@ -1,12 +1,19 @@
+"""
+Explicitly extract specific gene sequences from longer genome sequences
+"""
+
 import subprocess
 from pathlib import Path
-
 from latch import small_task, workflow
 from latch.types import LatchFile
 
 
 @small_task
 def create_database(seqfile: LatchFile) -> LatchFile:
+
+    """
+    Generate blast database.
+    """
 
     _dir_cmd = ["mkdir", "blast_db", "Results", "Spike_gene_seq"]
     _batch_cmd = [
@@ -17,7 +24,7 @@ def create_database(seqfile: LatchFile) -> LatchFile:
         "nucl",
         "-parse_seqids",
         "-out",
-        "./blast_db/seq_data.fasta",
+        "/blast_db/seq_data.fasta",
     ]
 
     subprocess.run(_dir_cmd)
@@ -27,6 +34,10 @@ def create_database(seqfile: LatchFile) -> LatchFile:
 
 @small_task
 def run_blast(query_file: LatchFile) -> LatchFile:
+
+    """
+    Run blast to generate alignment coordinates and extract gene sequences.
+    """
 
     spike_gene_file = Path("spike_seq.fasta").resolve()
 
@@ -64,25 +75,31 @@ def run_blast(query_file: LatchFile) -> LatchFile:
 
 ############
 
-
 @workflow
 def extract_spike_gene(seqfile: LatchFile, query_file: LatchFile) -> LatchFile:
-    """Description
-    ## Extract spike gene sequence
 
+    """Extract of spike gene sequence
+
+    ## Goal
     This workflow extracts spike (glycoprotein) gene sequences from SARS-CoV-2 whole genome genome.
 
-    First create a database of the whole genome sequences. Align spike query sequence to
-    blast database. Then extract coordinates and trim the sequence using a python script.
+    ## Tools 
+    1. blast command-line tool. Download from [here](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
+    2. Python 3.9.5
+
+    ## Steps
+    1. Create a database of the whole genome sequences.
+    2. Align spike query sequence to blast database. Then extract coordinates and trim the sequence using a python script.
 
     __metadata__:
-        display_name: extract SARS-CoV-2 gene sequence
+        display_name: extract_spike_gene
         author:
             name: Mike Mwanga
             email: mikemwanga6@gmail.com
-            github: mikemwanga
-            repository: https://github.com/mikemwanga/wf-sars_cov_spike_gene
-            license: MIT
+            github: https://github.com/mikemwanga/wf-sars_cov_spike_gene
+            repository: 
+            license:
+                id: MIT
 
     Args:
         seqfile:

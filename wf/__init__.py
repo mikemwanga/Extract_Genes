@@ -57,13 +57,13 @@ def run_blast(query_file: LatchFile) -> LatchFile:
         "-query",
         query_file,
         "-db",
-        "./blast_db/seq_data.fasta",
+        "blast_db/seq_data.fasta",
         "-outfmt",
         "6",
         "-max_hsps",
         "1",
         "-out",
-        str(spike_gene_file),
+        spike_gene_file
     ]
 
     subprocess.run(_align_cmd)
@@ -72,8 +72,6 @@ def run_blast(query_file: LatchFile) -> LatchFile:
     subprocess.run(extract_sequences)
     return LatchFile(str(spike_gene_file), "latch:///Spike_gene_seq/spike_seq.fasta")
 
-
-############
 
 @workflow
 def extract_spike_gene(seqfile: LatchFile, query_file: LatchFile) -> LatchFile:

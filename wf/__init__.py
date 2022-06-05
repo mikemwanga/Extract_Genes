@@ -41,13 +41,13 @@ def run_blast(query_file: LatchFile) -> LatchFile:
 
     spike_gene_file = Path("spike_seq.fasta").resolve()
 
-    extract_coordinates = ["sh", "scripts/extract_coordinates.sh"]
+    extract_coordinates = ["sh", "root/scripts/extract_coordinates.sh"]
 
-    extract_coordinates2 = ["python3", "scripts/extract.py"]
+    extract_coordinates2 = ["python3", "root/scripts/extract.py"]
 
     extract_sequences = [
         "sh",
-        "./scripts/read.sh",
+        "root/scripts/read.sh",
         ">",
         "spike_seq.fasta",
     ]

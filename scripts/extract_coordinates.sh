@@ -4,4 +4,4 @@
 #motivation from this link
 
 #extract the sequence id, and start and stop positions
-awk -F "\t" '{OFS="\t"}{print $2,$9,$10}' ./Results/results.out > ./Results/hits.txt
+awk -F "\t" '{OFS="\t"}{print $2,$9,$10}' results.out > hits.txt

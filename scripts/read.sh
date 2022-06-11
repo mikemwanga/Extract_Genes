@@ -8,5 +8,5 @@
 
 
 while read id start stop; do
-	./executables/nblast_2.13/bin/blastdbcmd -db ./blast_db/seq_data.fasta -entry $id -range $start-$stop
-done < ./Results/sequence_coordinates.txt > Spike_gene_seq/spike_gene.fasta
+	./nblast_2.13/bin/blastdbcmd -db database.fasta -entry $id -range $start-$stop
+done < sequence_coordinates.txt > spike_gene.fasta

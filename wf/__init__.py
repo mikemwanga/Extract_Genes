@@ -94,6 +94,8 @@ def extract_spike_gene(seqfile: LatchFile, query_file: LatchFile) -> LatchFile:
     1. Create a database of the whole genome sequences.
     2. Align spike query sequence to blast database. Use mapping coordinates to extract the target gene sequences from database.
 
+    Link to the code [here](https://github.com/mikemwanga/wf-sars_cov_spike_gene/blob/main/wf/__init__.py)
+
     __metadata__:
         display_name: extract_spike_gene
         author:

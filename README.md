@@ -18,7 +18,8 @@ surface glycoprotein gene sequence from SARS-CoV-2 [Wuhan strain](https://www.nc
 
 ## Steps
 
-Lauch the workflow console within LatchBio using this [link](https://console.latch.bio/explore/61979/info)
+Lauch the workflow console within LatchBio using this [link](https://console.latch.bio/explore/61979/info).
+Create an account once prompted.
 
 1. Load a single spike gene sequence as `query_sequence`
 2. Load metafile containing full genome sequences as `seq_data`

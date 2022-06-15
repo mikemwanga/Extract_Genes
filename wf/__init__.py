@@ -8,7 +8,7 @@ from latch import small_task, workflow
 from latch.types import LatchFile
 import pandas as pd
 
-@large_task
+@small_task
 
 def create_database(seqfile: LatchFile, query_file:LatchFile) -> LatchFile:
     """

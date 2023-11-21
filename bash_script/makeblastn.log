@@ -1,0 +1,9 @@
+
+
+Building a new DB, current time: 11/21/2023 09:36:51
+New DB name:   /home/mike/Documents/Extract_Genes/bash_script/database
+New DB title:  mega_fasta.seq.fasta
+Sequence type: Nucleotide
+Keep MBits: T
+Maximum file size: 1000000000B
+Adding sequences from FASTA; added 20 sequences in 0.00398302 seconds.
